@@ -12,7 +12,7 @@ const Hero = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        className="mb-16 w-full max-w-4xl"
+                        className="mb-8 w-full max-w-4xl"
                     >
                         <img
                             src="/mint-logo.png"
