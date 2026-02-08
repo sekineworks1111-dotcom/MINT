@@ -7,7 +7,7 @@ const InstagramFeed = () => {
     const posts = [1, 2, 3, 4]
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-bg-light">
             <div className="container px-4 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -16,9 +16,9 @@ const InstagramFeed = () => {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col items-center mb-12"
                 >
-                    <Instagram className="text-mint-600 mb-4" size={40} />
-                    <h2 className="text-3xl font-bold text-navy-900 mb-4">日々の活動風景</h2>
-                    <p className="text-gray-600">
+                    <Instagram className="text-turquoise-dark mb-4" size={40} />
+                    <h2 className="text-4xl font-black text-black mb-4">日々の活動風景</h2>
+                    <p className="text-gray text-lg">
                         練習の様子や試合結果などをInstagramで発信しています。<br />
                         MINTの雰囲気を感じてください。
                     </p>
@@ -32,15 +32,15 @@ const InstagramFeed = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="aspect-square bg-gray-100 rounded-xl overflow-hidden relative group cursor-pointer"
+                            className="aspect-square bg-turquoise/10 rounded-xl overflow-hidden relative group cursor-pointer border-2 border-turquoise/30"
                         >
-                            <div className="absolute inset-0 bg-mint/10 group-hover:bg-mint/20 transition-colors"></div>
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-medium">
+                            <div className="absolute inset-0 bg-turquoise/20 group-hover:bg-turquoise/40 transition-colors"></div>
+                            <div className="absolute inset-0 flex items-center justify-center text-gray font-medium">
                                 Photo {post}
                             </div>
                             {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <Instagram className="text-white" size={32} />
+                            <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <Instagram className="text-turquoise" size={32} />
                             </div>
                         </motion.div>
                     ))}
@@ -54,7 +54,7 @@ const InstagramFeed = () => {
                 >
                     <Link
                         to="/activity"
-                        className="inline-flex items-center gap-2 text-navy-700 font-bold hover:text-mint-600 transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-full hover:bg-turquoise hover:text-black transition-all shadow-lg"
                     >
                         もっと見る <ArrowRight size={20} />
                     </Link>

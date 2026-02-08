@@ -1,15 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mint: #98FF98;
-  --color-navy: #003366;
+  /* Primary Colors - Based on Logo */
+  --color-turquoise: #7FFFD4;
+  --color-turquoise-light: #B2FFE8;
+  --color-turquoise-dark: #4DD4B0;
+
+  /* Accent Colors */
+  --color-black: #1a1a1a;
+  --color-gray: #4A5568;
+  --color-gray-light: #A0AEC0;
+
+  /* Background Colors */
   --color-bg-white: #ffffff;
-  --color-bg-light: #f9fafb;
+  --color-bg-light: #F8FFFE;
+  --color-bg-turquoise: #E6FFFA;
+
+  /* Legacy aliases for compatibility */
+  --color-mint: #7FFFD4;
+  --color-navy: #1a1a1a;
 }
 
-/* Custom Utilities if needed */
+/* Custom Utilities */
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .bg-gradient-turquoise {
+    background: linear-gradient(135deg, #7FFFD4 0%, #B2FFE8 100%);
   }
 }
