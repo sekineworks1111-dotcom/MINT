@@ -7,35 +7,19 @@ const Hero = () => {
             <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                 <div className="flex flex-col items-center text-center">
 
-                    {/* Logo Design - Recreated from image */}
+                    {/* Logo Image */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        className="mb-16"
+                        className="mb-16 w-full max-w-4xl"
                     >
-                        <div className="text-center">
-                            {/* M.I.N.T. Acronym */}
-                            <div className="mb-6 text-xs md:text-sm font-bold tracking-widest text-black opacity-90 flex flex-wrap justify-center gap-2 md:gap-4">
-                                <span>Momentum</span>
-                                <span>Imagination</span>
-                                <span>Never give up</span>
-                                <span>Teamwork</span>
-                            </div>
-
-                            {/* Main Logo Text */}
-                            <h1 className="text-7xl md:text-9xl font-black text-black tracking-tighter mb-3" style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
-                                Mint
-                            </h1>
-
-                            {/* Since 2025 */}
-                            <p className="text-base md:text-lg font-semibold text-black mb-6">Since 2025</p>
-
-                            {/* Tagline */}
-                            <p className="text-3xl md:text-5xl font-black text-black tracking-tight">
-                                Believe in ourselves
-                            </p>
-                        </div>
+                        <img
+                            src="/mint-logo.png"
+                            alt="MINT Volleyball Club - Momentum, Imagination, Never give up, Teamwork - Mint Since 2025 - Believe in ourselves"
+                            className="w-full h-auto"
+                            title="MINT Volleyball Club Logo"
+                        />
                     </motion.div>
 
                     {/* Catchphrase */}
