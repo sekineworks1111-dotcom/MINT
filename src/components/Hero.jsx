@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-turquoise/30 via-white to-turquoise/20 py-20">
+        <section className="relative min-h-[80svh] md:min-h-screen flex flex-col items-center justify-start md:justify-center overflow-hidden bg-gradient-to-br from-turquoise/30 via-white to-turquoise/20 pt-4 pb-12 md:py-20">
             <div className="container mx-auto px-4 md:px-6 max-w-6xl">
                 <div className="flex flex-col items-center text-center">
 
