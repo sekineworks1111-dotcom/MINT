@@ -1,10 +1,31 @@
-import { Instagram, ArrowRight } from 'lucide-react'
+import { Instagram, ArrowRight, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 const InstagramFeed = () => {
-    // Placeholder posts
-    const posts = [1, 2, 3, 4]
+    // Behold.so Widget Integration
+    // To make this work:
+    // 1. Go to https://behold.so/ and sign up (Free)
+    // 2. Connect the @MINT_VOLLEYBALL_YUGI account
+    // 3. Create a widget style (Grid)
+    // 4. Copy the "Feed ID" and replace 'YOUR_FEED_ID' below
+    const BEHOLD_FEED_ID = 'YOUR_FEED_ID' // Replace this with actual ID
+
+    useEffect(() => {
+        // Load Behold script dynamically
+        const script = document.createElement('script')
+        script.src = 'https://w.behold.so/widget.js'
+        script.type = 'module'
+        document.body.appendChild(script)
+
+        return () => {
+            // Cleanup if needed
+            if (document.body.contains(script)) {
+                document.body.removeChild(script)
+            }
+        }
+    }, [])
 
     return (
         <section className="py-24 bg-bg-light">
@@ -18,33 +39,50 @@ const InstagramFeed = () => {
                 >
                     <Instagram className="text-turquoise-dark mb-4" size={40} />
                     <h2 className="text-4xl font-black text-black mb-4">日々の活動風景</h2>
-                    <p className="text-gray text-lg">
+                    <p className="text-gray text-lg mb-6">
                         練習の様子や試合結果などをInstagramで発信しています。<br />
                         MINTの雰囲気を感じてください。
                     </p>
+                    <a
+                        href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-turquoise-dark hover:text-black transition-colors"
+                    >
+                        @MINT_VOLLEYBALL_YUGI <ExternalLink size={14} />
+                    </a>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-5xl mx-auto">
-                    {posts.map((post, index) => (
-                        <motion.div
-                            key={post}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="aspect-square bg-turquoise/10 rounded-xl overflow-hidden relative group cursor-pointer border-2 border-turquoise/30"
-                        >
-                            <div className="absolute inset-0 bg-turquoise/20 group-hover:bg-turquoise/40 transition-colors"></div>
-                            <div className="absolute inset-0 flex items-center justify-center text-gray font-medium">
-                                Photo {post}
-                            </div>
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <Instagram className="text-turquoise" size={32} />
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                {/* Widget Container */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="min-h-[300px] mb-12 bg-white rounded-2xl shadow-sm p-4"
+                >
+                    {/* Behold Widget */}
+                    {BEHOLD_FEED_ID === 'YOUR_FEED_ID' ? (
+                        <div className="flex flex-col items-center justify-center h-[300px] bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 text-gray">
+                            <Instagram size={48} className="mb-4 text-gray-300" />
+                            <p className="font-bold mb-2">Instagramフィードを表示するには設定が必要です</p>
+                            <p className="text-sm max-w-md">
+                                開発者の方へ: Behold.soでフィードIDを取得し、<br />
+                                <code>src/components/InstagramFeed.jsx</code> の <code>BEHOLD_FEED_ID</code> を更新してください。
+                            </p>
+                            <a
+                                href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-6 px-6 py-2 bg-turquoise text-black rounded-full font-bold text-sm hover:bg-turquoise-dark transition-colors"
+                            >
+                                Instagramで直接見る
+                            </a>
+                        </div>
+                    ) : (
+                        <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
+                    )}
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0 }}

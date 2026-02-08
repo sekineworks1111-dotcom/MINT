@@ -1,11 +1,24 @@
-import { Instagram } from 'lucide-react'
-import { ExternalLink } from 'lucide-react'
+import { Instagram, ExternalLink } from 'lucide-react'
+import { useEffect } from 'react'
 
 const Activity = () => {
-    // Mock data for Instagram grid
-    const instaPosts = Array.from({ length: 9 }).map((_, i) => ({ id: i + 1 }))
+    // Behold Widget ID for Activity Page (can be the same or different from Home)
+    const BEHOLD_FEED_ID = 'YOUR_FEED_ID'
 
-    // Mock data for Note cards
+    useEffect(() => {
+        const script = document.createElement('script')
+        script.src = 'https://w.behold.so/widget.js'
+        script.type = 'module'
+        document.body.appendChild(script)
+
+        return () => {
+            if (document.body.contains(script)) {
+                document.body.removeChild(script)
+            }
+        }
+    }, [])
+
+    // Mock data for Note cards (unchanged)
     const notePosts = [
         {
             title: "【MINT】設立への想い - バレーボールを通じて伝えたいこと",
@@ -39,35 +52,38 @@ const Activity = () => {
                 </div>
             </section>
 
-            {/* Instagram Grid */}
+            {/* Instagram Grid (Via Behold Widget) */}
             <section className="py-20 bg-white">
-                <div className="container px-4 max-w-6xl mx-auto">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">
-                        {instaPosts.map((post) => (
+                <div className="container mx-auto px-4 max-w-6xl">
+
+                    {BEHOLD_FEED_ID === 'YOUR_FEED_ID' ? (
+                        <div className="flex flex-col items-center justify-center p-12 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 text-center">
+                            <Instagram size={64} className="mb-6 text-gray-300" />
+                            <h3 className="text-xl font-bold text-gray-600 mb-2">Instagramフィード設定</h3>
+                            <p className="text-gray mb-6 max-w-lg mx-auto">
+                                Behold.soでフィードIDを取得し、<code>src/pages/Activity.jsx</code> に設定してください。<br />
+                                設定するまでは、以下のボタンから直接Instagramをご覧いただけます。
+                            </p>
                             <a
-                                key={post.id}
-                                href="https://instagram.com"
+                                href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="aspect-square bg-turquoise/10 relative group overflow-hidden block md:rounded-xl border-2 border-turquoise/20"
+                                className="px-8 py-3 bg-gradient-to-tr from-purple-600 to-pink-500 text-white rounded-full font-bold text-base hover:opacity-90 transition-opacity shadow-lg flex items-center gap-2"
                             >
-                                {/* Placeholder Image */}
-                                <div className="w-full h-full bg-turquoise/5 flex items-center justify-center text-gray">
-                                    IMG {post.id}
-                                </div>
-
-                                {/* Hover Overlay */}
-                                <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <Instagram className="text-turquoise mb-2" size={32} />
-                                    <span className="text-white font-bold tracking-wider text-sm">Instagramで見る</span>
-                                </div>
+                                <Instagram size={20} />
+                                @MINT_VOLLEYBALL_YUGI を見る
                             </a>
-                        ))}
-                    </div>
+                        </div>
+                    ) : (
+                        <div className="min-h-[600px]">
+                            <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
+                        </div>
+                    )}
+
                 </div>
             </section>
 
-            {/* Follow Section */}
+            {/* Follow Section (Unchanged layout) */}
             <section className="py-16 bg-bg-light text-center">
                 <div className="container px-4">
                     <div className="inline-block p-1 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 mb-6">
@@ -89,7 +105,7 @@ const Activity = () => {
                 </div>
             </section>
 
-            {/* Note Section */}
+            {/* Note Section (Unchanged) */}
             <section className="py-24 bg-white">
                 <div className="container px-4 max-w-5xl mx-auto">
                     <div className="text-center mb-16">
