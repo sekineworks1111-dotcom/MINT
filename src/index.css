@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint: #98FF98;
+  --color-navy: #003366;
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f9fafb;
+}
+
+/* Custom Utilities if needed */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
