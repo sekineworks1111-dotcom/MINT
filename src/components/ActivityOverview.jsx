@@ -45,7 +45,7 @@ const ActivityOverview = () => {
                         </div>
 
                         <a
-                            href="https://note.com/mint_volleyball"
+                            href="https://note.com/mamonii1973"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-full hover:bg-turquoise hover:text-black transition-all group shadow-lg"

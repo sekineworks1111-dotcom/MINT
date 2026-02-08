@@ -6,29 +6,7 @@ const ScheduleLocation = () => {
         <section className="py-24 bg-white" id="schedule">
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* BAND Link Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16 max-w-2xl mx-auto"
-                >
-                    <div className="bg-gradient-to-r from-turquoise/20 via-turquoise/10 to-turquoise/20 rounded-2xl p-8 border-2 border-turquoise">
-                        <h3 className="text-2xl font-black text-black mb-4">メンバー専用コミュニティ</h3>
-                        <p className="text-gray mb-6">
-                            練習スケジュールや連絡事項はBANDで共有しています。<br />
-                            メンバーの方は下記リンクからご参加ください。
-                        </p>
-                        <a
-                            href="https://www.band.us/band/98321447"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-turquoise hover:text-black transition-all shadow-lg group"
-                        >
-                            BANDコミュニティに参加
-                            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </div>
-                </motion.div>
+
 
                 <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
                     {/* Schedule */}
@@ -67,6 +45,32 @@ const ScheduleLocation = () => {
                                 </span>
                             </div>
                         </div>
+
+                        {/* BAND Link Section - Moved here */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="mt-8"
+                        >
+                            <div className="bg-gradient-to-r from-turquoise/20 via-turquoise/10 to-turquoise/20 rounded-2xl p-6 border-2 border-turquoise text-center">
+                                <h3 className="text-xl font-black text-black mb-3">メンバー専用コミュニティ</h3>
+                                <p className="text-gray text-sm mb-4">
+                                    練習スケジュールや連絡事項はBANDで共有しています。<br />
+                                    メンバーの方は下記リンクからご参加ください。
+                                </p>
+                                <a
+                                    href="https://www.band.us/band/98321447"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-6 py-2 bg-black text-white rounded-full font-bold text-sm hover:bg-turquoise hover:text-black transition-all shadow-lg group"
+                                >
+                                    BANDコミュニティに参加
+                                    <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
+                                </a>
+                            </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Location */}

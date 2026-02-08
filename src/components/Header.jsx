@@ -53,6 +53,7 @@ const Header = () => {
                     <span className="text-3xl font-black text-black tracking-tighter group-hover:text-turquoise transition-colors" style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
                         Mint
                     </span>
+                    <img src="/MINT_ball.jpg" alt="MINT Ball" className="h-6 w-6 rounded-full object-cover" />
                     <span className="text-xs font-medium text-gray hidden sm:block">Volleyball Club</span>
                 </Link>
 
@@ -68,9 +69,7 @@ const Header = () => {
                             {item.name}
                         </Link>
                     ))}
-                    <a href="#contact" className="px-5 py-2 rounded-full bg-turquoise text-black text-sm font-bold hover:bg-turquoise-dark transition-all shadow-sm hover:shadow active:scale-95 transform">
-                        部員募集
-                    </a>
+
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -86,50 +85,41 @@ const Header = () => {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
-                            initial={{ opacity: 0, x: '100%' }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: '100%' }}
-                            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                            className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-40 md:hidden"
                         >
-                            <nav className="flex flex-col gap-6">
-                                {menuItems.map((item, index) => (
-                                    <motion.div
-                                        key={item.name}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                    >
+                            {/* Backdrop - transparent/invisible as user asked for menu background specifically, but we typically need a closer. 
+                                Let's make the menu itself the visible part.
+                            */}
+
+                            <motion.div
+                                initial={{ x: '100%' }}
+                                animate={{ x: 0 }}
+                                exit={{ x: '100%' }}
+                                transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+                                className="absolute top-0 right-0 h-[100dvh] w-[70%] max-w-xs bg-white/80 backdrop-blur-md shadow-2xl flex flex-col pt-20 border-l border-white/20"
+                            >
+                                <nav className="flex flex-col">
+                                    {menuItems.map((item, index) => (
                                         <Link
+                                            key={item.name}
                                             to={`${item.path}${item.hash}`}
-                                            className="text-2xl font-black text-black block py-2 border-b border-gray-100 uppercase"
+                                            className="block py-3 px-6 text-lg font-bold text-black border-b border-gray-400/30 hover:bg-white/40 transition-colors"
                                             onClick={() => handleNavClick(item)}
                                         >
                                             {item.name}
                                         </Link>
-                                    </motion.div>
-                                ))}
+                                    ))}
 
-                                <motion.div
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: menuItems.length * 0.1 }}
-                                    className="mt-4"
-                                >
-                                    <a
-                                        href="#contact"
-                                        className="block w-full text-center py-4 rounded-full bg-turquoise text-black font-bold text-xl hover:bg-turquoise-dark transition-all shadow-lg"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        部員募集 / お問い合わせ
-                                    </a>
-                                </motion.div>
 
-                                <div className="mt-auto mb-8 text-center text-gray text-sm">
-                                    <p className="font-bold mb-2">MINT Volleyball Club</p>
-                                    <p>Believe in ourselves</p>
+                                </nav>
+
+                                <div className="mt-auto mb-8 text-center text-xs text-black font-medium">
+                                    <p className="mb-1">MINT Volleyball Club</p>
                                 </div>
-                            </nav>
+                            </motion.div>
                         </motion.div>
                     )}
                 </AnimatePresence>

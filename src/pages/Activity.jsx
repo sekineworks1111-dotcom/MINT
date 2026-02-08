@@ -99,7 +99,7 @@ const Activity = () => {
                         {notePosts.map((note, index) => (
                             <a
                                 key={index}
-                                href="https://note.com/mint_volleyball"
+                                href="https://note.com/mamonii1973"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group bg-white rounded-2xl shadow-md hover:shadow-xl border-2 border-gray-100 hover:border-turquoise overflow-hidden transition-all hover:-translate-y-1 block h-full flex flex-col"
