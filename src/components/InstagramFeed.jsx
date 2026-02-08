@@ -1,32 +1,8 @@
 import { Instagram, ArrowRight, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
 
 const InstagramFeed = () => {
-    // Behold.so Widget Integration
-    // To make this work:
-    // 1. Go to https://behold.so/ and sign up (Free)
-    // 2. Connect the @MINT_VOLLEYBALL_YUGI account
-    // 3. Create a widget style (Grid)
-    // 4. Copy the "Feed ID" and replace 'YOUR_FEED_ID' below
-    const BEHOLD_FEED_ID = 'YOUR_FEED_ID' // Replace this with actual ID
-
-    useEffect(() => {
-        // Load Behold script dynamically
-        const script = document.createElement('script')
-        script.src = 'https://w.behold.so/widget.js'
-        script.type = 'module'
-        document.body.appendChild(script)
-
-        return () => {
-            // Cleanup if needed
-            if (document.body.contains(script)) {
-                document.body.removeChild(script)
-            }
-        }
-    }, [])
-
     return (
         <section className="py-24 bg-bg-light">
             <div className="container mx-auto px-4 max-w-6xl text-center">
@@ -53,35 +29,34 @@ const InstagramFeed = () => {
                     </a>
                 </motion.div>
 
-                {/* Widget Container */}
+                {/* Clean Link Banner instead of broken embeds */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="min-h-[300px] mb-12 bg-white rounded-2xl shadow-sm p-4"
+                    className="mb-12"
                 >
-                    {/* Behold Widget */}
-                    {BEHOLD_FEED_ID === 'YOUR_FEED_ID' ? (
-                        <div className="flex flex-col items-center justify-center h-[300px] bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 text-gray">
-                            <Instagram size={48} className="mb-4 text-gray-300" />
-                            <p className="font-bold mb-2">Instagramフィードを表示するには設定が必要です</p>
-                            <p className="text-sm max-w-md">
-                                開発者の方へ: Behold.soでフィードIDを取得し、<br />
-                                <code>src/components/InstagramFeed.jsx</code> の <code>BEHOLD_FEED_ID</code> を更新してください。
+                    <a
+                        href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full max-w-4xl mx-auto bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 p-1 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 group"
+                    >
+                        <div className="bg-white rounded-xl p-8 md:p-12 flex flex-col items-center justify-center">
+                            <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <Instagram size={40} className="text-black" />
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-black text-black mb-2">Official Instagram</h3>
+                            <p className="text-gray text-center max-w-lg mb-6">
+                                最新の活動情報はインスタグラムで更新中！<br />
+                                選手の素顔や練習の裏側も公開しています。
                             </p>
-                            <a
-                                href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-6 px-6 py-2 bg-turquoise text-black rounded-full font-bold text-sm hover:bg-turquoise-dark transition-colors"
-                            >
-                                Instagramで直接見る
-                            </a>
+                            <span className="text-turquoise-dark font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
+                                CHECK NOW <ArrowRight size={20} />
+                            </span>
                         </div>
-                    ) : (
-                        <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
-                    )}
+                    </a>
                 </motion.div>
 
                 <motion.div

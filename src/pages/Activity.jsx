@@ -1,23 +1,6 @@
 import { Instagram, ExternalLink } from 'lucide-react'
-import { useEffect } from 'react'
 
 const Activity = () => {
-    // Behold Widget ID for Activity Page (can be the same or different from Home)
-    const BEHOLD_FEED_ID = 'YOUR_FEED_ID'
-
-    useEffect(() => {
-        const script = document.createElement('script')
-        script.src = 'https://w.behold.so/widget.js'
-        script.type = 'module'
-        document.body.appendChild(script)
-
-        return () => {
-            if (document.body.contains(script)) {
-                document.body.removeChild(script)
-            }
-        }
-    }, [])
-
     // Mock data for Note cards (unchanged)
     const notePosts = [
         {
@@ -46,40 +29,39 @@ const Activity = () => {
                     <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight">ACTIVITY</h1>
                     <p className="text-turquoise text-xl font-semibold">活動風景</p>
                     <p className="text-gray-light mt-6 max-w-2xl mx-auto text-lg">
-                        MINTの日常や練習の様子をInstagramで発信中。<br />
-                        ぜひフォローして応援してください！
+                        MINTの日常や練習の様子をピックアップ。<br />
+                        Instagramで最新情報を発信中！
                     </p>
                 </div>
             </section>
 
-            {/* Instagram Grid (Via Behold Widget) */}
+            {/* Featured Instagram Link (Restored clean design) */}
             <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 max-w-6xl">
+                <div className="container mx-auto px-4 max-w-6xl text-center">
+                    <h3 className="text-2xl font-black text-black mb-10">Featured Posts</h3>
 
-                    {BEHOLD_FEED_ID === 'YOUR_FEED_ID' ? (
-                        <div className="flex flex-col items-center justify-center p-12 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 text-center">
-                            <Instagram size={64} className="mb-6 text-gray-300" />
-                            <h3 className="text-xl font-bold text-gray-600 mb-2">Instagramフィード設定</h3>
-                            <p className="text-gray mb-6 max-w-lg mx-auto">
-                                Behold.soでフィードIDを取得し、<code>src/pages/Activity.jsx</code> に設定してください。<br />
-                                設定するまでは、以下のボタンから直接Instagramをご覧いただけます。
+                    <div className="max-w-3xl mx-auto bg-gray-50 rounded-2xl p-12 border border-gray-100 shadow-sm">
+                        <div className="mb-8">
+                            <div className="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-md mb-6">
+                                <Instagram size={48} className="text-turquoise-dark" />
+                            </div>
+                            <h4 className="text-xl font-bold text-black mb-4">Instagramで活動をチェック</h4>
+                            <p className="text-gray leading-relaxed">
+                                Instagramの仕様により、サイト上での直接表示が制限されています。<br />
+                                最新の写真や動画は、公式アカウントで直接ご覧ください。
                             </p>
-                            <a
-                                href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-8 py-3 bg-gradient-to-tr from-purple-600 to-pink-500 text-white rounded-full font-bold text-base hover:opacity-90 transition-opacity shadow-lg flex items-center gap-2"
-                            >
-                                <Instagram size={20} />
-                                @MINT_VOLLEYBALL_YUGI を見る
-                            </a>
                         </div>
-                    ) : (
-                        <div className="min-h-[600px]">
-                            <behold-widget feed-id={BEHOLD_FEED_ID}></behold-widget>
-                        </div>
-                    )}
 
+                        <a
+                            href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex px-8 py-3 bg-gradient-to-tr from-purple-600 to-pink-500 text-white rounded-full font-bold text-base hover:opacity-90 transition-opacity shadow-lg flex items-center gap-2 mx-auto"
+                        >
+                            <Instagram size={20} />
+                            @MINT_VOLLEYBALL_YUGI を見る
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -95,7 +77,7 @@ const Activity = () => {
                     <p className="text-gray mb-8">Official Instagram Account</p>
 
                     <a
-                        href="https://instagram.com"
+                        href="https://instagram.com/MINT_VOLLEYBALL_YUGI"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex px-8 py-3 bg-turquoise text-black rounded-full font-bold hover:bg-turquoise-dark transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
