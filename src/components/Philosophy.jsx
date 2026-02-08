@@ -28,7 +28,7 @@ const Philosophy = () => {
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-bg-turquoise opacity-50 blur-3xl"></div>
 
-            <div className="container px-4 relative z-10">
+            <div className="container mx-auto px-4 max-w-6xl relative z-10">
                 <div className="text-center mb-16 max-w-2xl mx-auto">
                     <span className="text-turquoise-dark font-bold tracking-wider text-sm uppercase mb-2 block">Our Philosophy</span>
                     <h2 className="text-4xl md:text-5xl font-black text-black mb-6">MINTの想い</h2>

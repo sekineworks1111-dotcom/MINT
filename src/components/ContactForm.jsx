@@ -24,7 +24,7 @@ const ContactForm = () => {
 
     return (
         <section className="py-24 bg-white relative" id="contact">
-            <div className="container px-4 max-w-3xl mx-auto">
+            <div className="container mx-auto px-4 max-w-3xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

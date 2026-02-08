@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const ActivityOverview = () => {
     return (
         <section className="py-24 bg-bg-light overflow-hidden">
-            <div className="container px-4">
+            <div className="container mx-auto px-4 max-w-6xl">
                 <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
