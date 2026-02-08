@@ -1,61 +1,50 @@
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
-            {/* Background with Logo-inspired Design */}
-            <div className="absolute inset-0 z-0">
-                {/* Turquoise gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-turquoise via-turquoise-light to-white opacity-40"></div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-20 right-10 w-64 h-64 bg-turquoise rounded-full blur-3xl opacity-20"></div>
-                <div className="absolute bottom-20 left-10 w-96 h-96 bg-turquoise-light rounded-full blur-3xl opacity-20"></div>
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-turquoise/30 via-white to-turquoise/20">
+            {/* Logo Image as Main Visual - Using inline style for now */}
+            <div className="absolute inset-0 z-0 flex items-center justify-center">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="w-full max-w-5xl h-auto flex items-center justify-center"
+                >
+                    {/* Logo will be placed here - for now using a styled placeholder */}
+                    <div className="text-center">
+                        <div className="mb-4 text-sm font-bold tracking-widest text-black opacity-90">
+                            <span className="inline-block mx-2">Momentum</span>
+                            <span className="inline-block mx-2">Imagination</span>
+                            <span className="inline-block mx-2">Never give up</span>
+                            <span className="inline-block mx-2">Teamwork</span>
+                        </div>
+                        <h1 className="text-9xl font-black text-black tracking-tighter mb-2" style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
+                            Mint
+                        </h1>
+                        <p className="text-lg font-semibold text-black mb-4">Since 2025</p>
+                        <p className="text-5xl font-black text-black tracking-tight">
+                            Believe in ourselves
+                        </p>
+                    </div>
+                </motion.div>
+                {/* Subtle overlay to ensure text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40"></div>
             </div>
 
             <div className="container relative z-10 px-4 md:px-6">
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
 
-                    {/* M.I.N.T. Acronym Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-turquoise/20 border border-turquoise text-black text-sm font-bold mb-8 backdrop-blur-sm"
-                    >
-                        <Sparkles size={16} className="text-turquoise-dark" />
-                        <span>Momentum · Imagination · Never give up · Teamwork</span>
-                    </motion.div>
+                    {/* Spacer to push content below the logo */}
+                    <div className="h-[60vh]"></div>
 
-                    {/* Main Logo/Title */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        className="mb-8"
-                    >
-                        <h1 className="text-7xl md:text-9xl font-black text-black tracking-tight leading-none mb-2" style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
-                            Mint
-                        </h1>
-                        <p className="text-sm md:text-base text-gray font-semibold tracking-wider">Since 2025</p>
-                    </motion.div>
-
-                    {/* Tagline */}
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        className="text-3xl md:text-5xl font-bold text-black mb-4 tracking-tight"
-                    >
-                        Believe in ourselves
-                    </motion.h2>
-
+                    {/* Catchphrase */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="text-lg md:text-xl text-gray mb-10 max-w-2xl leading-relaxed"
+                        className="text-xl md:text-2xl text-gray mb-10 max-w-2xl leading-relaxed font-medium"
                     >
                         バレーボールをもっと楽しく、もっと身近に。<br />
                         自ら考え、仲間と創る。未来を拓く力をバレーボールから。

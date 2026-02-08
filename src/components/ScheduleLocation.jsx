@@ -1,10 +1,35 @@
-import { MapPin, Calendar } from 'lucide-react'
+import { MapPin, Calendar, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const ScheduleLocation = () => {
     return (
         <section className="py-24 bg-white" id="schedule">
             <div className="container px-4">
+                {/* BAND Link Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16 max-w-2xl mx-auto"
+                >
+                    <div className="bg-gradient-to-r from-turquoise/20 via-turquoise/10 to-turquoise/20 rounded-2xl p-8 border-2 border-turquoise">
+                        <h3 className="text-2xl font-black text-black mb-4">メンバー専用コミュニティ</h3>
+                        <p className="text-gray mb-6">
+                            練習スケジュールや連絡事項はBANDで共有しています。<br />
+                            メンバーの方は下記リンクからご参加ください。
+                        </p>
+                        <a
+                            href="https://www.band.us/band/98321447"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-turquoise hover:text-black transition-all shadow-lg group"
+                        >
+                            BANDコミュニティに参加
+                            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
+                    </div>
+                </motion.div>
+
                 <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
                     {/* Schedule */}
                     <motion.div
@@ -16,10 +41,10 @@ const ScheduleLocation = () => {
                     >
                         <div className="flex items-center gap-3 mb-8">
                             <Calendar className="text-turquoise-dark" size={32} />
-                            <h2 className="text-3xl font-black text-black">スケジュール</h2>
+                            <h2 className="text-3xl font-black text-black">基本練習日程</h2>
                         </div>
                         <div className="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8">
-                            <h3 className="text-lg font-bold text-black mb-6 border-l-4 border-turquoise pl-3">基本練習日程</h3>
+                            <h3 className="text-lg font-bold text-black mb-6 border-l-4 border-turquoise pl-3">週末の練習</h3>
                             <div className="space-y-4">
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-100 pb-4">
                                     <span className="font-bold text-black text-lg">土曜日</span>
